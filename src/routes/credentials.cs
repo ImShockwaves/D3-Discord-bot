@@ -4,12 +4,13 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using RestSharp.Authenticators;
 using d3bot.src.routes;
+using System.Threading.Tasks;
 
 namespace d3bot.src.routes
 {
     public class Credentials
     {
-        public static Token    createAccessToken(string apiKey, string apiSecret) {
+        public static async Task<Token>    createAccessToken(string apiKey, string apiSecret) {
             string url = "http://eu.battle.net/oauth/token";
             string method = "post";
             ReqParam[] Params = { 
@@ -28,7 +29,8 @@ namespace d3bot.src.routes
                     value = "application/x-www-form-urlencoded",
                 }
             };
-            return JsonConvert.DeserializeObject<Token>(Index.request(url, method, Params, Headers).Content);
+            IRestResponse Res = await Index.request(url, method, Params, Headers);
+            return JsonConvert.DeserializeObject<Token>(Res.Content);
         }
     }
 }

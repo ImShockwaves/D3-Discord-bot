@@ -2,12 +2,13 @@ using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using d3bot.interfaces;
+using System.Threading.Tasks;
 
 namespace d3bot.src.routes
 {
     public class Index
     {
-        public static IRestResponse request(string url, string method) {
+        public static async Task<IRestResponse> request(string url, string method) {
             var Client = new RestClient(url);
             RestRequest Request = null;
             if (method == "get")
@@ -16,14 +17,14 @@ namespace d3bot.src.routes
                 Request = new RestRequest(Method.POST);
             if (Request != null) {
                 Client.Timeout = -1;
-                return Client.Execute(Request);
+                return await Client.ExecuteAsync(Request);
             }
             else
                 Console.WriteLine("Error: Request object not define");
             return null;
         }
 
-        public static IRestResponse request(string url, string method, ReqParam[] Params, ReqHeader[] Headers) {
+        public static async Task<IRestResponse> request(string url, string method, ReqParam[] Params, ReqHeader[] Headers) {
             var Client = new RestClient(url);
             RestRequest Request = null;
             if (method == "get")
@@ -40,7 +41,7 @@ namespace d3bot.src.routes
                 foreach (ReqHeader Header in Headers)
                     Request.AddHeader(Header.key, Header.value);
                 Client.Timeout = -1;
-                return Client.Execute(Request);
+                return await Client.ExecuteAsync(Request);
             }
             else
                 Console.WriteLine("Error: Request object not define");
