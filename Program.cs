@@ -11,6 +11,8 @@ using d3bot.interfaces;
 using d3bot.src.credentials;
 using d3bot.src.routes;
 using d3bot.src.discord;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace d3bot
 {
@@ -18,8 +20,8 @@ namespace d3bot
     {
         public static void Main(string[] args)
         {
-            string b_token = Credentials.createAccessToken(Env.getVar("B_CLIENT"), Env.getVar("B_SECRET")).access_token;
-            BlizzCredentials.displayProfile("Shockwaves#2256", b_token, "eu");
+            // Token Token = Credentials.createAccessToken(Env.getVar("B_CLIENT"), Env.getVar("B_SECRET")).GetAwaiter().GetResult();
+            // BlizzCredentials.displayProfile("Shockwaves#2256", Token.access_token, "eu").Wait();
             BotHandler.DiscordMain();
         }
     }
