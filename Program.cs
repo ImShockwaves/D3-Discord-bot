@@ -8,20 +8,16 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using d3bot.interfaces;
-using d3bot.src.credentials;
 using d3bot.src.routes;
 using d3bot.src.discord;
-using RestSharp;
-using RestSharp.Authenticators;
 
 namespace d3bot
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            // Token Token = Credentials.createAccessToken(Env.getVar("B_CLIENT"), Env.getVar("B_SECRET")).GetAwaiter().GetResult();
-            // BlizzCredentials.displayProfile("Shockwaves#2256", Token.access_token, "eu").Wait();
+            Globals.Token = await Credentials.createAccessToken(Env.getVar("B_CLIENT"), Env.getVar("B_SECRET"));
             BotHandler.DiscordMain();
         }
     }
