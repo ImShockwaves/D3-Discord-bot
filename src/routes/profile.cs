@@ -18,6 +18,6 @@ namespace d3bot.src.routes
             string method = "get";
             IRestResponse Res = await Index.request(url, method);
             return JsonConvert.DeserializeObject<ProfileInt>(Res.Content);
-        }    
+        }  
     }
 }

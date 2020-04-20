@@ -2,6 +2,10 @@ using System;
 
 namespace d3bot.interfaces
 {
+    public class Globals {
+        public static Token Token;
+    }
+
     public class Token {
         public string access_token {get;set;}
         public string token_type {get;set;}
