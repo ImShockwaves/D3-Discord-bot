@@ -131,9 +131,9 @@ namespace d3bot.src.image_processing
 							new SolidBrush(ProfileDraw.ParColor), 
 							new PointF(start + Convert.ToInt32(genderSize.Width) + Convert.ToInt32(classSize.Width), 493));
 			
-			size = g.MeasureString(Profile.guildName, new Font("exocet", 18, GraphicsUnit.Point));
+			size = g.MeasureString(Profile.guildName.ToUpper(), new Font("exocet", 18, GraphicsUnit.Point));
 			startPosition = (292 - Convert.ToInt32(size.Width)) / 2;
-			g.DrawString(Profile.guildName, 
+			g.DrawString(Profile.guildName.ToUpper(), 
 							new Font("exocet", 18, GraphicsUnit.Point), 
 							new SolidBrush(ProfileDraw.GuildColor), 
 							new PointF(33 + startPosition, 600));
