@@ -8,7 +8,7 @@ namespace d3bot.src.image_processing
 	public class ProfileProc
 	{
 		public static void     profileProcessing(ProfileInt Profile, string account) {
-			Bitmap Template	= new Bitmap("/home/ubuntu/d3bot/data/img/profile_template.png");
+			Bitmap Template	= new Bitmap("data/img/profile_template.png");
 			Graphics g = Graphics.FromImage(Template);
 			string formattedAccount = account.Split('#')[0].ToUpper();
 			SizeF size = g.MeasureString(formattedAccount, new Font("exocet", 20, GraphicsUnit.Point));
@@ -22,7 +22,7 @@ namespace d3bot.src.image_processing
 			statTemplating(g, Profile);
 			heroTemplating(g, Profile);
 
-			Template.Save("/home/ubuntu/d3bot/data/img/RenderedImage.png", System.Drawing.Imaging.ImageFormat.Png);
+			Template.Save("data/img/RenderedImage.png", System.Drawing.Imaging.ImageFormat.Png);
 		}
 
 		public static void		statTemplating(Graphics g, ProfileInt Profile) {
@@ -61,7 +61,7 @@ namespace d3bot.src.image_processing
 			int maxValue = Profile.heroes.Max(hero => hero.kills.elites);
 			int index = Array.FindIndex(Profile.heroes, hero => hero.kills.elites == maxValue);
 			Heroes MostPlayed = Profile.heroes[index];
-			Bitmap HeroTemplate	= new Bitmap($"/home/ubuntu/d3bot/data/img/{MostPlayed.classSlug}_{(MostPlayed.gender == 1 ? "female" : "male")}_portrait.png");
+			Bitmap HeroTemplate	= new Bitmap($"data/img/{MostPlayed.classSlug}_{(MostPlayed.gender == 1 ? "female" : "male")}_portrait.png");
 			SizeF size = g.MeasureString(MostPlayed.name, new Font("Palatino Linotype", 20, GraphicsUnit.Point));
 			int startPosition = (236 - Convert.ToInt32(size.Width)) / 2;
 

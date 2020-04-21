@@ -19,12 +19,12 @@ namespace d3bot.Modules
 			public async Task	displayProfile([Summary("Player profile")] string account, string region = "eu") {
 				ProfileInt Prof = await Profile.getProfile(account, Globals.Token.access_token, region);
 				ProfileProc.profileProcessing(Prof, account);
-				await Context.Channel.SendFileAsync("/home/ubuntu/d3bot/data/img/RenderedImage.png", null);
+				await Context.Channel.SendFileAsync("data/img/RenderedImage.png", null);
 			}
 
 			[Command("cowlvl")][Summary("There is no cow level")]
 			public async Task	cowLevel() {
-				await Context.Channel.SendFileAsync("data\\img\\cowlvl.png", "Leads to a place that does not exist. The Burning Hells are not responsible for events that transpire there. If you claim to have been to this place, you will be called a liar. Void where prohibited.");
+				await Context.Channel.SendFileAsync("data/img/cowlvl.png", "Leads to a place that does not exist. The Burning Hells are not responsible for events that transpire there. If you claim to have been to this place, you will be called a liar. Void where prohibited.");
 			}
 
 			[Command("help")][Summary("Display help")]
