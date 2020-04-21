@@ -19,7 +19,7 @@ namespace d3bot.Modules
 			public async Task	displayProfile([Summary("Player profile")] string account, string region = "eu") {
 				ProfileInt Prof = await Profile.getProfile(account, Globals.Token.access_token, region);
 				ProfileProc.profileProcessing(Prof, account);
-				await Context.Channel.SendFileAsync("data\\img\\RenderedImage.png", null);
+				await Context.Channel.SendFileAsync("/home/ubuntu/d3bot/data/img/RenderedImage.png", null);
 			}
 
 			[Command("cowlvl")][Summary("There is no cow level")]
