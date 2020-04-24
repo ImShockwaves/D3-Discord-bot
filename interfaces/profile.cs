@@ -1,6 +1,7 @@
 using System.Drawing;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace d3bot.interfaces
 {
@@ -61,5 +62,13 @@ namespace d3bot.interfaces
         public static Color crus = Color.FromArgb(154, 139, 16);
         public static Color monk = Color.FromArgb(143, 92, 24);
         public static Color nec = Color.FromArgb(0, 165, 134);
+    }
+
+    [Serializable]
+    class InvalidProfileNameException : Exception
+    {
+        public InvalidProfileNameException(string account)
+            : base($"Profile not found for {account}: account first letter must be upper or does not exist")
+        {}
     }
 }

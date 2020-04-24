@@ -25,7 +25,8 @@ namespace d3bot.src.image_processing
 
 				Template.Save("data/img/RenderedImage.png", System.Drawing.Imaging.ImageFormat.Png);
 			}
-			catch (System.Exception) {				
+			catch (OperationCanceledException e) {
+				Console.WriteLine($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");				
 				throw;
 			}
 		}
@@ -118,7 +119,6 @@ namespace d3bot.src.image_processing
 			SizeF classSize = g.MeasureString($"{clas}i", new Font("Palatino Linotype", 15, GraphicsUnit.Point));
 			SizeF parSize = g.MeasureString($"({MostPlayed.paragonLevel})", new Font("Palatino Linotype", 15, GraphicsUnit.Point));
 			int fullSize = Convert.ToInt32(genderSize.Width + classSize.Width + parSize.Width);
-			Console.WriteLine(fullSize);
 			startPosition = (226 - fullSize) / 2;
 			
 
