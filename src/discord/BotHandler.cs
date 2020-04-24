@@ -40,6 +40,7 @@ namespace d3bot.src.discord
                 await client.LoginAsync(TokenType.Bot, Env.getVar("BOT_TOKEN"));
                 await client.StartAsync();
                 await services.GetRequiredService<CommandHandler>().InitializeAsync();
+                await client.SetGameAsync("Stay Awhile and Listen !");
                 await Task.Delay(-1);
             }
         }
