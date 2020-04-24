@@ -17,7 +17,12 @@ namespace d3bot.Modules
 		{			
 			[Command("profile", RunMode = RunMode.Async)][Summary("Retrieve a player profile")]
 			public async Task	displayProfile([Summary("Player profile")] string account, string region = "eu") {
-				ProfileInt Prof = await Profile.getProfile(account, Globals.Token.access_token, region);
+
+				ProfileInt Prof = await Profile.getProfile(Char.ToUpper(account[0]) + account.Substring(1), Globals.Token.access_token, region);
+				if (Prof.heroes == null && Prof.kills == null && Prof.timePlayed == null) {
+					await Context.Channel.SendMessageAsync($"Profile not found for {account}");
+					throw new InvalidProfileNameException(account);
+				}
 				ProfileProc.profileProcessing(Prof, account);
 				await Context.Channel.SendFileAsync("data/img/RenderedImage.png", null);
 			}
