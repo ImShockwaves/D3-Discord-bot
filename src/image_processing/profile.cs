@@ -8,21 +8,26 @@ namespace d3bot.src.image_processing
 	public class ProfileProc
 	{
 		public static void     profileProcessing(ProfileInt Profile, string account) {
-			Bitmap Template	= new Bitmap("data/img/profile_template.png");
-			Graphics g = Graphics.FromImage(Template);
-			string formattedAccount = account.Split('#')[0].ToUpper();
-			SizeF size = g.MeasureString(formattedAccount, new Font("exocet", 20, GraphicsUnit.Point));
-			int startPosition = (252 - Convert.ToInt32(size.Width)) / 2;
+			try {				
+				Bitmap Template	= new Bitmap("data/img/profile_template.png");
+				Graphics g = Graphics.FromImage(Template);
+				string formattedAccount = account.Split('#')[0].ToUpper();
+				SizeF size = g.MeasureString(formattedAccount, new Font("exocet", 20, GraphicsUnit.Point));
+				int startPosition = (252 - Convert.ToInt32(size.Width)) / 2;
 
-			g.DrawString(formattedAccount,
-							new Font("exocet", 20), 
-							new SolidBrush(Color.Red), 
-							new PointF(278 + startPosition, 10));
+				g.DrawString(formattedAccount,
+								new Font("exocet", 20), 
+								new SolidBrush(Color.Red), 
+								new PointF(278 + startPosition, 10));
 
-			statTemplating(g, Profile);
-			heroTemplating(g, Profile);
+				statTemplating(g, Profile);
+				heroTemplating(g, Profile);
 
-			Template.Save("data/img/RenderedImage.png", System.Drawing.Imaging.ImageFormat.Png);
+				Template.Save("data/img/RenderedImage.png", System.Drawing.Imaging.ImageFormat.Png);
+			}
+			catch (System.Exception) {				
+				throw;
+			}
 		}
 
 		public static void		statTemplating(Graphics g, ProfileInt Profile) {

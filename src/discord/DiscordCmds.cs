@@ -17,8 +17,11 @@ namespace d3bot.Modules
 		{			
 			[Command("profile", RunMode = RunMode.Async)][Summary("Retrieve a player profile")]
 			public async Task	displayProfile([Summary("Player profile")] string account, string region = "eu") {
-				ProfileInt Prof = await Profile.getProfile(account, Globals.Token.access_token, region);
-				ProfileProc.profileProcessing(Prof, account);
+
+				string upAccount = account[0].ToUpper();
+				ProfileInt Prof = await Profile.getProfile(upAccount, Globals.Token.access_token, region);
+				Console.WriteLine(Prof);
+				ProfileProc.profileProcessing(Prof, upAccount);
 				await Context.Channel.SendFileAsync("data/img/RenderedImage.png", null);
 			}
 
