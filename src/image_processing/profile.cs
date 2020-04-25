@@ -7,25 +7,32 @@ namespace d3bot.src.image_processing
 {
 	public class ProfileProc
 	{
+
 		public static void     profileProcessing(ProfileInt Profile, string account, bool playtime) {
+			try {				
+				Bitmap Template	= new Bitmap("data/img/profile_template.png");
+				Graphics g = Graphics.FromImage(Template);
+				string formattedAccount = account.Split('#')[0].ToUpper();
+				SizeF size = g.MeasureString(formattedAccount, new Font("exocet", 20, GraphicsUnit.Point));
+				int startPosition = (252 - Convert.ToInt32(size.Width)) / 2;
 
-			Bitmap Template	= new Bitmap("data/img/profile_template.png");
-			Graphics g = Graphics.FromImage(Template);
-			string formattedAccount = account.Split('#')[0].ToUpper();
-			SizeF size = g.MeasureString(formattedAccount, new Font("exocet", 20, GraphicsUnit.Point));
-			int startPosition = (252 - Convert.ToInt32(size.Width)) / 2;
+				g.DrawString(formattedAccount,
+								new Font("exocet", 20), 
+								new SolidBrush(Color.Red), 
+								new PointF(278 + startPosition, 10));
 
-			g.DrawString(formattedAccount,
-							new Font("exocet", 20), 
-							new SolidBrush(Color.Red), 
-							new PointF(278 + startPosition, 10));
-			
-			statTemplating(g, Profile);
-			heroTemplating(g, Profile);
-			Template.Save("data/img/RenderedImage.png", System.Drawing.Imaging.ImageFormat.Png);
-			g.Dispose();
-			if (playtime) {
-				displayPlaytime(Profile, formattedAccount);
+				statTemplating(g, Profile);
+				heroTemplating(g, Profile);
+
+				Template.Save("data/img/RenderedImage.png", System.Drawing.Imaging.ImageFormat.Png);
+				g.Dispose();
+				if (playtime) {
+					displayPlaytime(Profile, formattedAccount);
+				}
+			}
+			catch (OperationCanceledException e) {
+				Console.WriteLine($"{nameof(OperationCanceledException)} thrown with message: {e.Message}");				
+				throw;
 			}
 		}
 
@@ -45,6 +52,7 @@ namespace d3bot.src.image_processing
 			Rectangle GaugeCoord = new Rectangle(100, 100, 100, 100);
 			g.DrawImage(Wiz_gauge, GaugeCoord, 100, 100, 100, 100, GraphicsUnit.Pixel);
 		}
+		
 
 		public static void		statTemplating(Graphics g, ProfileInt Profile) {
 
@@ -138,7 +146,6 @@ namespace d3bot.src.image_processing
 			SizeF classSize = g.MeasureString($"{clas}i", new Font("Palatino Linotype", 15, GraphicsUnit.Point));
 			SizeF parSize = g.MeasureString($"({MostPlayed.paragonLevel})", new Font("Palatino Linotype", 15, GraphicsUnit.Point));
 			int fullSize = Convert.ToInt32(genderSize.Width + classSize.Width + parSize.Width);
-			Console.WriteLine(fullSize);
 			startPosition = (226 - fullSize) / 2;
 			int start = 50 + startPosition;
 

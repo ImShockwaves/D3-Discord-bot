@@ -24,6 +24,10 @@ namespace d3bot.Modules
 				} else {
 					Prof = await Profile.getProfile(Char.ToUpper(account[0]) + account.Substring(1), Globals.Token.access_token, opt1.ToLower());
 				}
+				if (Prof.heroes == null && Prof.kills == null && Prof.timePlayed == null) {
+					await Context.Channel.SendMessageAsync($"Profile not found for {account}");
+					throw new InvalidProfileNameException(account);
+				}
 				ProfileProc.profileProcessing(Prof, account, playtime);
 				await Context.Channel.SendFileAsync("data/img/RenderedImage.png", null);
 			}
