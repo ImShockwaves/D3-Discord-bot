@@ -16,9 +16,15 @@ namespace d3bot.Modules
 		public class SampleModule : ModuleBase<SocketCommandContext>
 		{			
 			[Command("profile", RunMode = RunMode.Async)][Summary("Retrieve a player profile")]
-			public async Task	displayProfile([Summary("Player profile")] string account, string region = "eu") {
-				ProfileInt Prof = await Profile.getProfile(account, Globals.Token.access_token, region);
-				ProfileProc.profileProcessing(Prof, account);
+			public async Task	displayProfile([Summary("Player profile")] string account, string opt1 = "eu", string opt2 = "eu") {
+				ProfileInt Prof;
+				bool playtime = opt1.ToLower() == "playtime" || opt2.ToLower() == "playtime";
+				if (opt1.ToLower() == "playtime") {
+					Prof = await Profile.getProfile(Char.ToUpper(account[0]) + account.Substring(1), Globals.Token.access_token, opt2.ToLower());
+				} else {
+					Prof = await Profile.getProfile(Char.ToUpper(account[0]) + account.Substring(1), Globals.Token.access_token, opt1.ToLower());
+				}
+				ProfileProc.profileProcessing(Prof, account, playtime);
 				await Context.Channel.SendFileAsync("data/img/RenderedImage.png", null);
 			}
 

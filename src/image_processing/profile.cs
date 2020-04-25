@@ -7,7 +7,8 @@ namespace d3bot.src.image_processing
 {
 	public class ProfileProc
 	{
-		public static void     profileProcessing(ProfileInt Profile, string account) {
+		public static void     profileProcessing(ProfileInt Profile, string account, bool playtime) {
+
 			Bitmap Template	= new Bitmap("data/img/profile_template.png");
 			Graphics g = Graphics.FromImage(Template);
 			string formattedAccount = account.Split('#')[0].ToUpper();
@@ -18,14 +19,35 @@ namespace d3bot.src.image_processing
 							new Font("exocet", 20), 
 							new SolidBrush(Color.Red), 
 							new PointF(278 + startPosition, 10));
-
+			
 			statTemplating(g, Profile);
 			heroTemplating(g, Profile);
-
 			Template.Save("data/img/RenderedImage.png", System.Drawing.Imaging.ImageFormat.Png);
+			g.Dispose();
+			if (playtime) {
+				displayPlaytime(Profile, formattedAccount);
+			}
+		}
+
+		public static void		displayPlaytime(ProfileInt Profile, string account) {
+			
+			Bitmap Template	= new Bitmap("data/img/playtime_template.png");
+			Bitmap Wiz_gauge = new Bitmap("data/img/wiz_gauge.png");
+			Bitmap Dh_gauge = new Bitmap("data/img/dh_gauge.png");
+			Bitmap Crus_gauge = new Bitmap("data/img/crus_gauge.png");
+			Bitmap Wd_gauge = new Bitmap("data/img/wd_gauge.png");
+			Bitmap Monk_gauge = new Bitmap("data/img/monk_gauge.png");
+			Bitmap Nec_gauge = new Bitmap("data/img/nec_gauge.png");
+			Bitmap Barb_gauge = new Bitmap("data/img/barb_gauge.png");
+			Graphics g = Graphics.FromImage(Template);
+			// int gaugePercentWidth;
+
+			Rectangle GaugeCoord = new Rectangle(100, 100, 100, 100);
+			g.DrawImage(Wiz_gauge, GaugeCoord, 100, 100, 100, 100, GraphicsUnit.Pixel);
 		}
 
 		public static void		statTemplating(Graphics g, ProfileInt Profile) {
+
 			g.DrawString($"({Profile.paragonLevel})", 
 							new Font("Palatino Linotype", 20), 
 							new SolidBrush(ProfileDraw.ParColor), 
@@ -58,6 +80,7 @@ namespace d3bot.src.image_processing
 		}
 
 		public static void		heroTemplating(Graphics g, ProfileInt Profile) {
+
 			int maxValue = Profile.heroes.Max(hero => hero.kills.elites);
 			int index = Array.FindIndex(Profile.heroes, hero => hero.kills.elites == maxValue);
 			Heroes MostPlayed = Profile.heroes[index];
@@ -77,6 +100,7 @@ namespace d3bot.src.image_processing
 
 			string clas;
 			Color ClassColor;
+
 			switch (MostPlayed.classSlug)
 			{
 				case "wizard":
@@ -108,6 +132,7 @@ namespace d3bot.src.image_processing
 					ClassColor = ProfileDraw.monk;
 					break;
 			}
+
 			string gender = MostPlayed.gender == 1 ? "Female" : "Male";
 			SizeF genderSize = g.MeasureString($"{gender}i", new Font("Palatino Linotype", 15, GraphicsUnit.Point));
 			SizeF classSize = g.MeasureString($"{clas}i", new Font("Palatino Linotype", 15, GraphicsUnit.Point));
@@ -115,9 +140,8 @@ namespace d3bot.src.image_processing
 			int fullSize = Convert.ToInt32(genderSize.Width + classSize.Width + parSize.Width);
 			Console.WriteLine(fullSize);
 			startPosition = (226 - fullSize) / 2;
-			
-
 			int start = 50 + startPosition;
+
 			g.DrawString(gender, 
 							new Font("Palatino Linotype", 15, GraphicsUnit.Point), 
 							new SolidBrush(ProfileDraw.BasicColor), 
