@@ -30,6 +30,9 @@ namespace d3bot.Modules
 				}
 				ProfileProc.profileProcessing(Prof, account, playtime);
 				await Context.Channel.SendFileAsync("data/img/RenderedImage.png", null);
+				if (playtime) {
+					await Context.Channel.SendFileAsync("data/img/RenderedPlaytime.png", null);
+				}
 			}
 
 			[Command("cowlvl")][Summary("There is no cow level")]
