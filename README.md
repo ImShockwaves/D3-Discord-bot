@@ -4,7 +4,7 @@ A Discord bot to get and display data about Diablo 3
 In order to use this bot locally you will need credentials from discord and battle.net (as you may guess, I will not share mine).
 You will need to setup new environment variables: 
 - **BOT_TOKEN** that you have to retrieve from discord developer portal
-- **BOT_PREFIX** is the prefix before each commands (ex: ***!profile region battletag***, here "!" is the prefix)
+- **BOT_PREFIX** is the prefix before each commands (ex: ***!profile battletag region***, here "!" is the prefix)
 - **B_CLIENT** is the client id that you have to retrieve from battle.net developer portal
 - **B_SECRET** is the client id that you have to retrieve from battle.net developer portal
 
