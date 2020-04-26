@@ -6,7 +6,7 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
-using d3bot.interfaces;
+using d3bot.constructors;
 
 namespace d3bot.src.discord
 {

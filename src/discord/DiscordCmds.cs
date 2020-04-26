@@ -5,7 +5,7 @@ using Discord.WebSocket;
 using Discord.Commands;
 using System;
 using System.Threading.Tasks;
-using d3bot.interfaces;
+using d3bot.constructors;
 using d3bot.src.routes;
 using d3bot.src.image_processing;
 

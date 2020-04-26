@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 
-namespace d3bot.interfaces
+namespace d3bot.constructors
 {
     public class PlayTime {
         [JsonProperty(PropertyName = "demon-hunter")]

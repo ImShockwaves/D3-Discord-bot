@@ -1,6 +1,6 @@
 using System;
 
-namespace d3bot.interfaces
+namespace d3bot.constructors
 {
     public class Globals {
         public static Token Token;

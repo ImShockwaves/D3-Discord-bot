@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.DependencyInjection;
 using d3bot.src.discord;
-using d3bot.interfaces;
+using d3bot.constructors;
 
 namespace d3bot.src.discord
 {

@@ -1,7 +1,7 @@
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
-using d3bot.interfaces;
+using d3bot.constructors;
 using System.Threading.Tasks;
 
 namespace d3bot.src.routes

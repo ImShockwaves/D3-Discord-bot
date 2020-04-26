@@ -1,4 +1,4 @@
-using d3bot.interfaces;
+using d3bot.constructors;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;

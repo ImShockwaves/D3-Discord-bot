@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using d3bot.interfaces;
+using d3bot.constructors;
 using d3bot.src.routes;
 using d3bot.src.discord;
 

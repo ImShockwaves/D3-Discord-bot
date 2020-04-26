@@ -1,4 +1,4 @@
-using d3bot.interfaces;
+using d3bot.constructors;
 using d3bot.src.routes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;

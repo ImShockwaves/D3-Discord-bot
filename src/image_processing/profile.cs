@@ -1,6 +1,6 @@
 using System;
 using System.Drawing;
-using d3bot.interfaces;
+using d3bot.constructors;
 using System.Linq;
 
 namespace d3bot.src.image_processing
