@@ -65,7 +65,7 @@ namespace d3bot.src.image_processing
 							new SolidBrush(Color.White), 132.91F, 435.8F);
 			g.DrawString($"{percentage}%", 
 							new Font("Palatino Linotype", 16, FontStyle.Bold, GraphicsUnit.Point), 
-							new SolidBrush(Color.White), 315.86F, 462.0F);
+							new SolidBrush(Color.White), 315.28F, 460.77F);
 
 			percentage = Convert.ToInt32((Profile.timePlayed.witch_doctor / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (192 * percentage) / 100, 25);
@@ -75,7 +75,7 @@ namespace d3bot.src.image_processing
 							new SolidBrush(Color.White), 532.98F, 435.8F);
 			g.DrawString($"{percentage}%", 
 							new Font("Palatino Linotype", 16, FontStyle.Bold, GraphicsUnit.Point), 
-							new SolidBrush(Color.White), 718.54F,  460.0F);
+							new SolidBrush(Color.White), 719.28F,  457.77F);
 
 			percentage = Convert.ToInt32((Profile.timePlayed.demon_hunter / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (193 * percentage) / 100, 25);
@@ -105,7 +105,7 @@ namespace d3bot.src.image_processing
 							new SolidBrush(Color.White), 529.41F, 318.05F);
 			g.DrawString($"{percentage}%", 
 							new Font("Palatino Linotype", 16, FontStyle.Bold, GraphicsUnit.Point), 
-							new SolidBrush(Color.White), 718.54F, 345.24F);
+							new SolidBrush(Color.White), 713.28F, 343.77F);
 
 			percentage = Convert.ToInt32((Profile.timePlayed.necromancer / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (193 * percentage) / 100, 24);
@@ -115,7 +115,7 @@ namespace d3bot.src.image_processing
 							new SolidBrush(Color.White), 338.5F, 545.41F);
 			g.DrawString($"{percentage}%", 
 							new Font("Palatino Linotype", 16, FontStyle.Bold, GraphicsUnit.Point), 
-							new SolidBrush(Color.White), 521.14F, 571.92F);
+							new SolidBrush(Color.White), 520.28F, 571.92F);
 			
 			percentage = Convert.ToInt32((Profile.timePlayed.barbarian / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (193 * percentage) / 100, 24);
@@ -128,6 +128,7 @@ namespace d3bot.src.image_processing
 							new SolidBrush(Color.White), 310.28F, 241.77F);
 
 			Template.Save("data/img/RenderedPlaytime.png", System.Drawing.Imaging.ImageFormat.Png);
+			g.Dispose();
 		}
 		
 
