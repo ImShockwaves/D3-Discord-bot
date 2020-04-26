@@ -61,49 +61,49 @@ namespace d3bot.src.image_processing
 			Rectangle GaugeCoord = new Rectangle(0, 0, (193 * percentage) / 100, 24);
 			g.DrawImage(Wiz_gauge, 113, 457, GaugeCoord, GraphicsUnit.Pixel);
 			g.DrawString("Wizard", 
-							new Font("Palatino Linotype", 12, GraphicsUnit.Point), 
+							new Font("Palatino Linotype", 12, FontStyle.Bold, GraphicsUnit.Point), 
 							new SolidBrush(Color.White), 132.91F, 463.8F);
 
 			percentage = Convert.ToInt32((Profile.timePlayed.demon_hunter / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (193 * percentage) / 100, 25);
 			g.DrawImage(Dh_gauge, 108, 340, GaugeCoord, GraphicsUnit.Pixel);
 			g.DrawString("Demon Hunter", 
-							new Font("Palatino Linotype", 12, GraphicsUnit.Point), 
+							new Font("Palatino Linotype", 12, FontStyle.Bold, GraphicsUnit.Point), 
 							new SolidBrush(Color.White), 129.32F, 347.6F);
 
 			percentage = Convert.ToInt32((Profile.timePlayed.crusader / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (194 * percentage) / 100, 24);
 			g.DrawImage(Crus_gauge, 511, 238, GaugeCoord, GraphicsUnit.Pixel);
 			g.DrawString("Crusader", 
-							new Font("Palatino Linotype", 12, GraphicsUnit.Point), 
+							new Font("Palatino Linotype", 12, FontStyle.Bold, GraphicsUnit.Point), 
 							new SolidBrush(Color.White), 530.72F, 243.08F);
 
 			percentage = Convert.ToInt32((Profile.timePlayed.witch_doctor / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (192 * percentage) / 100, 25);
 			g.DrawImage(Wd_gauge, 515, 445, GaugeCoord, GraphicsUnit.Pixel);
 			g.DrawString("Witch Doctor", 
-							new Font("Palatino Linotype", 12, GraphicsUnit.Point), 
+							new Font("Palatino Linotype", 12, FontStyle.Bold, GraphicsUnit.Point), 
 							new SolidBrush(Color.White), 532.98F, 452.45F);
 
 			percentage = Convert.ToInt32((Profile.timePlayed.monk / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (194 * percentage) / 100, 24);
 			g.DrawImage(Monk_gauge, 511, 340, GaugeCoord, GraphicsUnit.Pixel);
 			g.DrawString("Monk", 
-							new Font("Palatino Linotype", 12, GraphicsUnit.Point), 
+							new Font("Palatino Linotype", 12, FontStyle.Bold, GraphicsUnit.Point), 
 							new SolidBrush(Color.White), 529.41F, 346.05F);
 
 			percentage = Convert.ToInt32((Profile.timePlayed.necromancer / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (193 * percentage) / 100, 24);
 			g.DrawImage(Nec_gauge, 318, 567, GaugeCoord, GraphicsUnit.Pixel);
 			g.DrawString("Necromancer", 
-							new Font("Palatino Linotype", 12, GraphicsUnit.Point), 
+							new Font("Palatino Linotype", 12, FontStyle.Bold, GraphicsUnit.Point), 
 							new SolidBrush(Color.White), 338.5F, 573.41F);
 
 			percentage = Convert.ToInt32((Profile.timePlayed.barbarian / total) * 100);
 			GaugeCoord = new Rectangle(0, 0, (193 * percentage) / 100, 24);
 			g.DrawImage(Barb_gauge, 108, 238, GaugeCoord, GraphicsUnit.Pixel);
 			g.DrawString("Barbarian", 
-							new Font("Palatino Linotype", 12, GraphicsUnit.Point), 
+							new Font("Palatino Linotype", 12, FontStyle.Bold, GraphicsUnit.Point), 
 							new SolidBrush(Color.White), 127.47F, 243.7F);
 
 			Template.Save("data/img/RenderedPlaytime.png", System.Drawing.Imaging.ImageFormat.Png);
