@@ -18,6 +18,7 @@ namespace d3bot
         public static async Task Main(string[] args)
         {
             Globals.Token = await Credentials.createAccessToken(Env.getVar("B_CLIENT"), Env.getVar("B_SECRET"));
+            EmbedLoader.deserializeEmbeds();
             BotHandler.DiscordMain();
         }
     }

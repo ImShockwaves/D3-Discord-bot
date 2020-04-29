@@ -1,0 +1,27 @@
+{
+    "footer": {
+        "text": "Bot made by Shockwaves, all images and data come from Diablo license, ©2020 BLIZZARD ENTERTAINMENT, INC. ALL RIGHTS RESERVED."
+    },
+    "header": {
+        "color": 16711680,
+        "name": "Deckard Cain",
+        "icon_url": "https://cdn.discordapp.com/avatars/696754505785802772/3395f890321d51b303e3df8fb6726e37.png?size=256"
+    },
+    "embeds": [
+        {
+            "name": "help",
+            "title": "__Stay Awhile and Listen__ to the commands !",
+            "description": "All []  parameters are required and () parameters are optionnals and can be combinate, ex : `+profile` __**`player#battletag`**__ *`eu`* *`playtime`* ",
+            "fields": [
+                {
+                    "name": "__**Display a player profile**__",
+                    "value": "*`+profile [battletag] (region | playtime)`*"
+                },
+                {
+                    "name": "__**This command does not exist**__",
+                    "value": "*`+cowlvl`*"
+                }
+            ]
+        }
+    ]      
+}

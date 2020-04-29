@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using d3bot.constructors;
 using d3bot.src.routes;
 using d3bot.src.image_processing;
+using d3bot.src.discord;
 
 namespace d3bot.Modules
 {
@@ -42,7 +43,7 @@ namespace d3bot.Modules
 
 			[Command("help")][Summary("Display help")]
 			public async Task	displayHelp() {
-				await Context.Channel.SendMessageAsync("Stay awhile and listen !\nList of commands:\n*+profile [battletag] [region](optionnal)* - Display a player profile\n*+cowlvl* - There is no cow level");
+				await Context.Channel.SendMessageAsync("", false, EmbedLoader.getEmbed("help", false));
 			}
 		}
 	}

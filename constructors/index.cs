@@ -1,8 +1,10 @@
 using System;
+using d3bot.constructors;
 
 namespace d3bot.constructors
 {
     public class Globals {
+        public static Embd EmbedList;
         public static Token Token;
     }
 
