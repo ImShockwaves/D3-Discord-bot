@@ -14,7 +14,7 @@
             "description": "All []  parameters are required and () parameters are optionnals and can be combinate, ex : `+profile` __**`player#battletag`**__ *`eu`* *`playtime`* ",
             "fields": [
                 {
-                    "name": "__**Display a player profile**__",
+                    "name": "__**Display a Nephalem profile**__",
                     "value": "*`+profile [battletag] (region | playtime)`*"
                 },
                 {
